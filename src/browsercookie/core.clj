@@ -69,15 +69,6 @@
    (System/getProperty "user.home")
    "/Library/Application Support/Google/Chrome/Default/Cookies"))
 
-(let [site-url "%github.com%"
-      aes-key (build-decryption-key (get-chrome-rawkey-osx))
-      db-spec {:dbtype "sqlite" :dbname (temp-file-copy-of cookies-file-osx)}
-      query (str "select * from cookies where host_key like '" site-url "'")
-      cookies (jdbc/query db-spec [query])]
-  (println
-   (json/write-str
-    (map (partial decrypt-cookie aes-key) cookies))))
-
 (defn -main
   [& args]
   (if (not= 1 (count args))
