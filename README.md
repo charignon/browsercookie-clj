@@ -7,6 +7,11 @@
     $ brew install leiningen jq
     $ lein run "website.com" | jq .
 
+## More information
+
+Check out [https://blog.laurentcharignon.com/post/extracting-chrome-cookie-clojure/](https://blog.laurentcharignon.com/post/extracting-chrome-cookie-clojure/) for more information.
+
+
 ## License
 
 Copyright © 2017 Laurent Charignon
